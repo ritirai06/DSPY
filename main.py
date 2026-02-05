@@ -27,5 +27,8 @@ optimized_program=optimize_program(program, trainset)
 
 # Optimized program ko call kar rahe hain 'Artificial Intelligence' term ke liye
 result=optimized_program(term='Artificial Intelligence')
+result=optimized_program(term='Machine Learning')
+result=optimized_program(term='Deep Learning')  
+result=optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
 # Result ki definition print kar rahe hain
 print(result.definition)
