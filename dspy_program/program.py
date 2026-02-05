@@ -36,5 +36,7 @@ class ControlledDefinition(dspy.Module):
 
 # Program create karne ka function
 def get_program():
-    # Controlled system return kar rahe hain with validation
-    return ControlledDefinition()
+    # DSPy ka ChainOfThought module return kar rahe hain jo DefineTerm signature use karega
+    # ChainOfThought module LLM ko step-by-step reasoning karne ke liye force karta hai
+    # Pehle reasoning generate hogi, phir final answer
+    return dspy.ChainOfThought(DefineTerm)

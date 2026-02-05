@@ -61,3 +61,21 @@ print(f"Definition: {result3.definition}")
 print("\n" + "="*60)
 print("System boundaries working! ✅")
 print("="*60)
+# Optimized program ko call kar rahe hain 'Artificial Intelligence' term ke liye
+result=optimized_program(term='Artificial Intelligence')
+
+# Result print kar rahe hain
+print("\n" + "="*50)
+print("TERM: Artificial Intelligence")
+print("="*50)
+
+# Agar Chain of Thought use ho raha hai, to reasoning bhi show hogi
+if hasattr(result, 'rationale'):
+    print(f"\nReasoning: {result.rationale}")
+    
+print(f"\nDefinition: {result.definition}")
+print("="*50)
+result=optimized_program(term='Deep Learning')  
+result=optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
+# Result ki definition print kar rahe hain
+print(result.definition)
