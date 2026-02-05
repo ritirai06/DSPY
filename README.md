@@ -146,12 +146,18 @@ import dspy
 from .signature import DefineTerm
 
 def get_program():
-    return dspy.Predict(DefineTerm)
+    return dspy.ChainOfThought(DefineTerm)
 ```
 
 **Use:**
 - `Predict` for simple tasks
-- `ChainOfThought` for reasoning tasks
+- `ChainOfThought` for reasoning tasks (✅ **Currently using**)
+
+**Why Chain of Thought?**
+- 🧠 Makes the model think step-by-step
+- 📈 Improves accuracy for complex definitions
+- 🔍 Provides reasoning transparency
+- ✨ Better quality outputs
 
 ---
 
@@ -235,7 +241,13 @@ program = get_program()
 optimized_program = optimize_program(program, trainset)
 
 result = optimized_program(term="Artificial Intelligence")
-print(result.definition)
+
+# Print results
+print(f"\nDefinition: {result.definition}")
+
+# If using ChainOfThought, you can also see the reasoning
+if hasattr(result, 'rationale'):
+    print(f"Reasoning: {result.rationale}")
 ```
 
 ---
@@ -243,7 +255,7 @@ print(result.definition)
 ## 🔄 Complete DSPy Flow (One Line)
 
 ```
-Signature → Program → Data → Metric → Optimizer → Learned Prompt
+Signature → Program (ChainOfThought) → Data → Metric → Optimizer → Learned Prompt
 ```
 
 **Prompts are outputs, not inputs.**
@@ -259,11 +271,18 @@ python3 main.py
 
 ### Output Example:
 ```
-Artificial intelligence is the development of computer systems 
-able to perform tasks that typically require human intelligence, 
-such as visual perception, speech recognition, decision-making, 
-and language translation.
+==================================================
+TERM: Artificial Intelligence
+==================================================
+
+Definition: Artificial Intelligence (AI) refers to the development 
+of computer systems that can perform tasks that would typically 
+require human intelligence, such as understanding language, 
+recognizing images, and making decisions.
+==================================================
 ```
+
+**With Chain of Thought**, the model reasons step-by-step internally before generating the final definition, resulting in more accurate and well-structured outputs.
 
 ---
 
