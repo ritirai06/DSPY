@@ -10,6 +10,8 @@ from dspy_program.program import get_program
 from dspy_program.optimizer import optimize_program
 # Training data import kar rahe hain
 from data.train import trainset
+# Evaluation metric import kar rahe hain
+from metrics.evaluation import definition_match
 
 # .env file se environment variables load kar rahe hain (API key ke liye)
 load_dotenv()
@@ -61,8 +63,20 @@ print(f"Definition: {result3.definition}")
 print("\n" + "="*60)
 print("System boundaries working! ✅")
 print("="*60)
-# Optimized program ko call kar rahe hain 'Artificial Intelligence' term ke liye
-result=optimized_program(term='Artificial Intelligence')
+# Define the optimizer
+from dspy.teleprompt import BootstrapFewShot
+
+optimizer = BootstrapFewShot(metric=definition_match)
+
+# First compile the program with optimizer
+optimized_program = optimizer.compile(
+    program,  # The program to optimize
+    trainset=trainset
+)
+
+# Now use the optimized program
+result = optimized_program(term='Artificial Intelligence')
+print(f"Result: {result}")
 
 # Result print kar rahe hain
 print("\n" + "="*50)
@@ -70,12 +84,12 @@ print("TERM: Artificial Intelligence")
 print("="*50)
 
 # Agar Chain of Thought use ho raha hai, to reasoning bhi show hogi
-if hasattr(result, 'rationale'):
-    print(f"\nReasoning: {result.rationale}")
+if hasattr(optimized_program, 'rationale'):
+    print(f"\nReasoning: {optimized_program.rationale}")
     
-print(f"\nDefinition: {result.definition}")
+print(f"\nDefinition: {optimized_program.definition}")
 print("="*50)
-result=optimized_program(term='Deep Learning')  
-result=optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
+optimized_program=optimized_program(term='Deep Learning')  
+optimized_program=optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
 # Result ki definition print kar rahe hain
-print(result.definition)
+print(optimized_program.definition)
