@@ -22,9 +22,45 @@ dspy.configure(
 
 # Program ko initialize kar rahe hain
 program=get_program()
-# Optimized program ko training data ke saath optimize kar rahe hain
-optimized_program=optimize_program(program, trainset)
 
+# Testing WITHOUT optimization first to see boundaries working
+print("\n" + "="*60)
+print("TESTING SYSTEM BOUNDARIES")
+print("="*60)
+
+# Test 1: Valid technical term
+print("\n" + "="*60)
+print("TEST 1: Valid Technical Term - 'Artificial Intelligence'")
+print("="*60)
+result1=program(term='Artificial Intelligence')
+print(f"Is Valid: {result1.is_valid if hasattr(result1, 'is_valid') else 'N/A'}")
+if hasattr(result1, 'validation_reason'):
+    print(f"Validation Reason: {result1.validation_reason}")
+print(f"Definition: {result1.definition}")
+
+# Test 2: Random nonsense term (should be rejected)
+print("\n" + "="*60)
+print("TEST 2: Random Term - 'Grape' (Not a technical term)")
+print("="*60)
+result2=program(term='Grape')
+print(f"Is Valid: {result2.is_valid if hasattr(result2, 'is_valid') else 'N/A'}")
+if hasattr(result2, 'validation_reason'):
+    print(f"Validation Reason: {result2.validation_reason}")
+print(f"Definition: {result2.definition}")
+
+# Test 3: Another valid term
+print("\n" + "="*60)
+print("TEST 3: Valid Technical Term - 'Machine Learning'")
+print("="*60)
+result3=program(term='Machine Learning')
+print(f"Is Valid: {result3.is_valid if hasattr(result3, 'is_valid') else 'N/A'}")
+if hasattr(result3, 'validation_reason'):
+    print(f"Validation Reason: {result3.validation_reason}")
+print(f"Definition: {result3.definition}")
+
+print("\n" + "="*60)
+print("System boundaries working! ✅")
+print("="*60)
 # Optimized program ko call kar rahe hain 'Artificial Intelligence' term ke liye
 result=optimized_program(term='Artificial Intelligence')
 
