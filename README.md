@@ -16,44 +16,44 @@ In DSPy, **prompts are not written** — they are learned automatically from you
 
 ---
 
-## 🤔 Why DSPy Exists
+##  Why DSPy Exists
 
 Traditional prompt engineering has serious problems:
 
-- ❌ **Prompts are brittle** - Small wording changes break behavior
-- ❌ **Improvements are manual** and non-reproducible
-- ❌ **No clear evaluation** or optimization loop
+-  **Prompts are brittle** - Small wording changes break behavior
+-  **Improvements are manual** and non-reproducible
+-  **No clear evaluation** or optimization loop
 
 DSPy was created to solve this by **treating prompts like trainable parameters**, similar to weights in machine learning.
 
 ---
 
-## ✨ What DSPy Does
+##  What DSPy Does
 
 DSPy:
-- ✅ Tries multiple prompt variants internally
-- ✅ Uses training examples as supervision
-- ✅ Evaluates each prompt using a metric
-- ✅ Automatically selects the best performing prompt
+-  Tries multiple prompt variants internally
+-  Uses training examples as supervision
+-  Evaluates each prompt using a metric
+-  Automatically selects the best performing prompt
 
 **You never directly control prompt wording.**
 
 ---
 
-## 🚫 What DSPy Is NOT
+##  What DSPy Is NOT
 
 DSPy is **NOT**:
-- ❌ A chatbot framework
-- ❌ A UI or frontend tool
-- ❌ An agent framework
-- ❌ A LangChain replacement
-- ❌ A tool for "better writing"
+-  A chatbot framework
+-  A UI or frontend tool
+-  An agent framework
+-  A LangChain replacement
+-  A tool for "better writing"
 
 **DSPy is a backend LLM systems engineering framework.**
 
 ---
 
-## 🎯 Project Goal
+##  Project Goal
 
 In this project:
 - User provides a **term**
@@ -91,7 +91,7 @@ This structure is simple, clean, and production-friendly.
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 - Python 3.9+
 - Ollama (free local LLM) or OpenAI API key
@@ -151,13 +151,13 @@ def get_program():
 
 **Use:**
 - `Predict` for simple tasks
-- `ChainOfThought` for reasoning tasks (✅ **Currently using**)
+- `ChainOfThought` for reasoning tasks ( **Currently using**)
 
 **Why Chain of Thought?**
-- 🧠 Makes the model think step-by-step
-- 📈 Improves accuracy for complex definitions
-- 🔍 Provides reasoning transparency
-- ✨ Better quality outputs
+-  Makes the model think step-by-step
+-  Improves accuracy for complex definitions
+-  Provides reasoning transparency
+-  Better quality outputs
 
 ---
 
@@ -196,7 +196,7 @@ def definition_match(example, prediction, trace=None):
 - Which output is good
 - Which prompt performs best
 
-⚠️ **Weak metrics produce weak systems.**
+ **Weak metrics produce weak systems.**
 
 ---
 
@@ -262,7 +262,7 @@ Signature → Program (ChainOfThought) → Data → Metric → Optimizer → Lea
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ```bash
 cd dspy-project
@@ -286,57 +286,57 @@ recognizing images, and making decisions.
 
 ---
 
-## ✅ What You SHOULD Do in DSPy
+##  What You SHOULD Do in DSPy
 
-- ✅ Define clear input and output fields
-- ✅ Provide real, representative examples
-- ✅ Design strong evaluation metrics
-- ✅ Think in terms of optimization, not wording
-
----
-
-## ❌ What You Should NOT Do in DSPy
-
-- ❌ Do not write prompts
-- ❌ Do not tweak wording manually
-- ❌ Do not put instructions inside signatures
-- ❌ Do not expect good results without data
-- ❌ Do not use DSPy for simple chatbots
+-  Define clear input and output fields
+-  Provide real, representative examples
+-  Design strong evaluation metrics
+-  Think in terms of optimization, not wording
 
 ---
 
-## 💡 Key Mental Model
+##  What You Should NOT Do in DSPy
+
+-  Do not write prompts
+-  Do not tweak wording manually
+-  Do not put instructions inside signatures
+-  Do not expect good results without data
+-  Do not use DSPy for simple chatbots
+
+---
+
+##  Key Mental Model
 
 > **Anything you would normally put into a prompt,  
 > in DSPy you put into data or metrics.**
 
 ---
 
-## 🎓 Final Summary
+##  Final Summary
 
 **DSPy is not prompt engineering.  
 DSPy is LLM systems engineering.**
 
 If you care about:
-- ✅ **Accuracy**
-- ✅ **Reproducibility**
-- ✅ **Scalability**
+-  **Accuracy**
+-  **Reproducibility**
+-  **Scalability**
 
 **DSPy is the right tool.**
 
 ---
 
-## 🔑 Features
+##  Features
 
-✅ **Completely Free** - Uses Ollama local model (no API costs)  
-✅ **Automatic Optimization** - Learns best prompts from examples  
-✅ **Type-safe** - Input/Output signatures clearly defined  
-✅ **Modular Design** - Clean, production-ready structure  
-✅ **Well Documented** - Detailed comments in every file  
+ **Completely Free** - Uses Ollama local model (no API costs)  
+ **Automatic Optimization** - Learns best prompts from examples  
+ **Type-safe** - Input/Output signatures clearly defined  
+ **Modular Design** - Clean, production-ready structure  
+ **Well Documented** - Detailed comments in every file  
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **DSPy** - Language Model programming framework
 - **Ollama** - Local LLM inference (Llama 3.2 model)
@@ -344,23 +344,25 @@ If you care about:
 
 ---
 
-## 📊 Project Status
+##  Project Status
 
-✅ Project structure created  
-✅ All modules implemented  
-✅ Free LLM integrated (Ollama)  
-✅ Working end-to-end  
-✅ Fully documented with comments  
+ Project structure created  
+ All modules implemented  
+ Free LLM integrated (Ollama)  
+ Working end-to-end  
+ Fully documented with comments  
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Feel free to contribute with issues and improvements on GitHub!
 
 ---
 
 **Made with DSPy & Ollama 🚀**
+
+**Written By**:- Riti Rai
 
 **Written By**: Riti Rai
 
