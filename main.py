@@ -84,12 +84,27 @@ print("TERM: Artificial Intelligence")
 print("="*50)
 
 # Agar Chain of Thought use ho raha hai, to reasoning bhi show hogi
-if hasattr(optimized_program, 'rationale'):
-    print(f"\nReasoning: {optimized_program.rationale}")
+if hasattr(result, 'reasoning'):
+    print(f"\nReasoning: {result.reasoning}")
     
-print(f"\nDefinition: {optimized_program.definition}")
+print(f"\nDefinition: {result.definition}")
 print("="*50)
-optimized_program=optimized_program(term='Deep Learning')  
-optimized_program=optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
-# Result ki definition print kar rahe hain
-print(optimized_program.definition)
+
+# Test with more terms
+result2 = optimized_program(term='Deep Learning')
+print("\n" + "="*50)
+print("TERM: Deep Learning")
+print("="*50)
+if hasattr(result2, 'reasoning'):
+    print(f"\nReasoning: {result2.reasoning}")
+print(f"\nDefinition: {result2.definition}")
+print("="*50)
+
+result3 = optimized_program(term='grapes') # Ye term training data mein nahi hai, isliye model ko generalize karna padega
+print("\n" + "="*50)
+print("TERM: grapes (not a technical term)")
+print("="*50)
+if hasattr(result3, 'reasoning'):
+    print(f"\nReasoning: {result3.reasoning}")
+print(f"\nDefinition: {result3.definition}")
+print("="*50)
